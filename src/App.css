@@ -36,3 +36,188 @@
     transform: rotate(360deg);
   }
 }
+/* ++++++++++++++++++++ Home Page ++++++++++++++++++++++++++ */
+.search-bar{
+  /* border: red solid 4px; */
+  margin-top: 30px;
+  align-items: center;
+  text-align: center;
+}
+.search-label{
+  color: blue;
+  margin: 10px;
+}
+.search-input{
+  margin: 10px;
+  width: 50%;
+  height: 30px;
+}
+
+/* +++++++++++++++++++++++ Home Hero Card +++++++++++++++++++++++ */
+
+
+.heros-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  font-style: oblique;
+}
+
+.home-card-container{
+  border: 6px rgb(91, 171, 252) solid;
+  background-color: rgba(0, 0, 0, 0.908);
+  width: 240px;
+  height: 390px;
+  margin: auto;
+  border-radius: 20px;
+  transition: transform 200ms;
+  /* clip-path: polygon(0 8%, 50% 0, 100% 8%, 100% 93%, 50% 100%, 0 93%); */
+}
+.home-card-container:hover{
+  transform: scale(1.07);
+}
+
+.home-card-title{
+  /* border: yellow 3px solid; */
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  margin: 5px;
+  padding-top: 1px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.home-card-img{
+  width: 100%;
+  height: 80%;
+  /* margin: 10px 10px; */
+  padding-top: 2px;
+  padding-bottom: 30px;
+}
+.bookmark{
+  /* border: red 1px solid; */
+  width: 50px;
+  margin-top: -40px;
+  margin-left: 175px;
+  /* z-index: 1000; */
+
+}
+
+
+
+/* +++++++++++++++++++ Navigation Bar ++++++++++++++++++++++++ */
+.navBar-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.navBar{
+  border: solid blue 3px;
+  background-color: #61dafb;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.navbar-link{
+  color: greenyellow;
+  font-size: large;
+}
+
+/* +++++++++++++++++++++++  Login Page +++++++++++++++++++++++++++ */
+
+.login-container{
+display: flex;
+flex-direction: column;
+width: 300px;
+height: 400px;
+margin: 100px auto;
+border: red solid 3px;
+}
+.img-container{
+  height: 300px;
+  padding: 10px;
+}
+.user-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+
+
+/* +++++++++++++ error Page +++++++++++++++++ */
+.error-img{
+  margin: 100px auto;
+  width: 400px;
+}
+
+
+/* ++++++++++++++++++++ Character Card +++++++++++++++++++++++ */
+
+.card-container{
+  border: blue 5px solid;
+  width: 80%;
+  height: 20%;
+  margin: auto ;
+  margin-top: 50px;
+
+}
+.hero-title{
+  text-align: center;
+  border: yellow 3px solid;
+}
+
+.hero-info{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.hero-img{
+  border: solid 3px red;
+  width: 50%;
+  height: 100%;
+}
+.hero-stats{
+font-family: 'Courier New', Courier, monospace;
+border: yellowgreen 3px solid;
+width: 50%;
+font-size: 20px;
+}
+.hero-stats h4{
+  margin: 6px 0px;
+}
+.hero-combatstats{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 400;
+  border: #ffa500 4px solid;
+  padding: 5px;
+}
+
+/* ++++++++++++++++++++++ Progress Bar ++++++++++++++++++++++ */
+
+.progressbar-container{
+  height: 20;
+  width: 100%;
+  border-radius: 50px;
+  background-color: #e0e0de ;
+  margin-top:5px;
+  margin-bottom: 10px;
+}
+
+/* Chat container */
+.chat-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* En la página de Chat Messages Container... */
+.messages-container{
+  border:rgb(91, 171, 252) solid 3px;
+  padding: 2px;
+  margin: 2px;
+}
