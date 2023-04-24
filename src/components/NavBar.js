@@ -25,12 +25,9 @@ function NavBar({demoUser, setDemoUser}) {
                             <NavLink to='about/content' className={({ isActive }) => isActive ? "navbar-link" : null}>Content</NavLink>
                         </>
                     : null}
-                </nav> 
-                { !user ? <NavLink to='login' className={({ isActive }) => isActive ? "navbar-link" : null}>Log in</NavLink> : <p style={{cursor: "pointer"}} onClick={logOut} >log out</p> }
-               
-                
-
-
+                    {!user ? <NavLink to='login' className={({ isActive }) => isActive ? "navbar-link" : null}>Log in</NavLink> :
+                        <NavLink to='login' className={({ isActive }) => isActive ? "navbar-link" : null} onClick={logOut} >Log out </NavLink>}
+                </nav>
             </div>  
         </div>
   )

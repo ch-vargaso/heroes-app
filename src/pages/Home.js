@@ -3,15 +3,37 @@ import HeroCard from '../components/HeroCard';
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 import { db } from '../Firebase';
-import { collection, doc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, onSnapshot, query } from 'firebase/firestore';
+import { FavouritesContext } from '../contexts/FavoritesContext';
 
 
 function Home() {
   const { user } = useContext(AuthContext);
+  const { favourites } = useContext(FavouritesContext);
+
   const [heros, setHeros] = useState(null);
-  const [favourites, setFavourites] = useState([]);
+  // const [favourites, setFavourites] = useState([]);
   const [heroSearch, setHeroSearch] = useState('');
   const [heroHome, setHeroHome] = useState(null);
+
+  // const listenToFavourites = async () => {
+
+  //   const q = query(collection(db, `users/${user.uid}`, "favourites"));
+  //   const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  //     const herosArray = [];
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(doc.id, "=>", doc.data());
+  //       const heroFav = {
+  //         docId: doc.id,
+  //         ...doc.data()
+  //       }
+  //       herosArray.push(heroFav);
+  //       console.log("heros array", herosArray);
+  //     });
+  //     setFavourites(herosArray);
+  //         console.log("Current cities in CA: ", herosArray);
+  //   });
+  // };
   // console.log('busqueda', heroSearch)
 
   // +++++++++++++Search Fetch +++++++++++++++++
@@ -38,7 +60,7 @@ function Home() {
     const herosHomepage = () => {
       let hero1 = "https://www.superheroapi.com/api.php/10166984457950198/38";
       let hero2 = "https://www.superheroapi.com/api.php/10166984457950198/265";
-      let hero3 = "https://www.superheroapi.com/api.php/10166984457950198/23";
+      let hero3 = "https://www.superheroapi.com/api.php/10166984457950198/620";
       let hero4 = "https://www.superheroapi.com/api.php/10166984457950198/289";
       let hero5 = "https://www.superheroapi.com/api.php/10166984457950198/547";
       let hero6 = "https://www.superheroapi.com/api.php/10166984457950198/660";
@@ -58,36 +80,39 @@ function Home() {
     herosHomepage()
   }, []);
 
-  const getAllFavourites = async () => {
+  // const getAllFavourites = async () => {
   
-    if (user) {
-        try {
-      const userRef = doc(db, `users/${user.uid}`);
-      const heroFavRef = collection(userRef, "favourites");
-      const querySnapShot = await getDocs(heroFavRef);
-      // this is important if I want to have the fav heroes only from one user... now i'm working on the general favs...
-      // const querySnapShot = await getDocs(collection(db, `${userID}`));
-      const herosArray = [];
-      querySnapShot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-        const heroFav = {
-          docId: doc.id,
-          ...doc.data()
-        }
-        herosArray.push(heroFav);
-        console.log("heros array", herosArray);
-      });
-          setFavourites(herosArray);
+  //   if (user) {
+  //       try {
+  //     const userRef = doc(db, `users/${user.uid}`);
+  //     const heroFavRef = collection(userRef, "favourites");
+  //     const querySnapShot = await getDocs(heroFavRef);
+  //     // this is important if I want to have the fav heroes only from one user... now i'm working on the general favs...
+  //     // const querySnapShot = await getDocs(collection(db, `${userID}`));
+  //     const herosArray = [];
+  //     querySnapShot.forEach((doc) => {
+  //       console.log(doc.id, "=>", doc.data());
+  //       const heroFav = {
+  //         docId: doc.id,
+  //         ...doc.data()
+  //       }
+  //       herosArray.push(heroFav);
+  //       console.log("heros array", herosArray);
+  //     });
+  //         setFavourites(herosArray);
 
-        } catch (error) {
-          console.log(error)
-      };
-    }
-  };
+  //       } catch (error) {
+  //         console.log(error)
+  //     };
+  //   }
+  // };
 
-  useEffect(() => {
-    getAllFavourites()
-  }, [user]);
+
+
+  // useEffect(() => {
+  //   // getAllFavourites()
+  //   listenToFavourites()
+  // }, [user]);
 
 
   return (
@@ -104,7 +129,7 @@ function Home() {
         }).map((hero) => {
           return (
             <div className='result-container'>
-                <HeroCard hero={hero} heroes={favourites} />
+                <HeroCard hero={hero} />
             </div>
           )
         })}
@@ -114,7 +139,7 @@ function Home() {
         {heroHome && heroHome.map((hero) => {
           return (
             <>
-                <HeroCard hero={hero} heroes={favourites} />
+                <HeroCard hero={hero} />
             </>
           )
         })}

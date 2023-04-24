@@ -13,12 +13,14 @@ import Content from './pages/Content';
 import { AuthContextProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Chat from './pages/Chat';
+import {FavouritesContextProvider } from './contexts/FavoritesContext';
 
 function App() {
   const [demoUser, setDemoUser] = useState({email: "demo@email.com", username: "Demoman" })
   return (
     <> 
       <AuthContextProvider>
+        <FavouritesContextProvider>
         <NavBar demoUser={demoUser} setDemoUser={setDemoUser} />
         <Routes>
           <Route path='/' element={<Home />} />
@@ -35,6 +37,9 @@ function App() {
           <Route path='/chat' element={<ProtectedRoute><Chat/></ProtectedRoute>}/>
 
           </Routes>
+          </FavouritesContextProvider>
+        
+
       </AuthContextProvider>
     </>
   );
