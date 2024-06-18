@@ -52,6 +52,7 @@ export const AuthContextProvider = (props) => {
             });
 
     }
+
     const checkForCurrentUser = () => {
         onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
@@ -60,7 +61,6 @@ export const AuthContextProvider = (props) => {
             } else {
                 setUser(null);
                 setUserSchecked(true);
-            
             }
         }); 
     }

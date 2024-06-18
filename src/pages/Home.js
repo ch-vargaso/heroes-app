@@ -147,12 +147,7 @@ function Home() {
     </div>    
   )
 }
-
 export default Home
-
-
-
-
 // ++++++++++++++++++++++++++ Ideas del Projecto +++++++++++++++++++++++++
 
       
@@ -164,4 +159,3 @@ export default Home
       // <h3>Tiene que tener el search bar un background???? transparente????</h3>
       // <h3>se hace @media screen and (max-width: con algunos pixeles) para hacer la página responsive a diferentes tamaños</h3>
       // necesito crear una pagina de registro
-

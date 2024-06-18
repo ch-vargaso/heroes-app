@@ -21,25 +21,22 @@ function App() {
     <> 
       <AuthContextProvider>
         <FavouritesContextProvider>
-        <NavBar demoUser={demoUser} setDemoUser={setDemoUser} />
-        <Routes>
-          <Route path='/' element={<Home />} />
+          <NavBar demoUser={demoUser} setDemoUser={setDemoUser} />
+          <Routes>
+            <Route path='/' element={<Home />} />
           {/* voy a abrir una subdivisión */}
-          <Route path='/about' element={<About />}>
-            <Route path='dev' element={<Dev/>}/>
-            <Route path='content' element={<Content/>}/>
-          </Route>
+            <Route path='/about' element={<About />}>
+              <Route path='dev' element={<Dev />} />
+              <Route path='content' element={<Content />} />
+            </Route>
           <Route path='favourites' element={<ProtectedRoute><Favourites /></ProtectedRoute>} />
-          {/* Esta es la ruta que necesito para cambiar los links a personalizados.... o no???? */}
+            {/* Esta es la ruta que necesito para cambiar los links a personalizados.... o no???? */}
           <Route path='/character/:id/:name' element={<ProtectedRoute><Character /></ProtectedRoute>} />
-          <Route path='*' element={<Error404 />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/chat' element={<ProtectedRoute><Chat/></ProtectedRoute>}/>
-
+            <Route path='*' element={<Error404 />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/chat' element={<ProtectedRoute><Chat /></ProtectedRoute>} />
           </Routes>
           </FavouritesContextProvider>
-        
-
       </AuthContextProvider>
     </>
   );

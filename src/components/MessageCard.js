@@ -27,5 +27,4 @@ function MessageCard({ message }) {
         </div>    
   )
 }
-
 export default MessageCard
