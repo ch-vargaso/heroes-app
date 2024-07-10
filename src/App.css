@@ -201,23 +201,33 @@ text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
 /* +++++++++++++++++++++++ Hero Card +++++++++++++++++++++++ */
 
 .home-card-container {
-  border: 4px #15a4cc solid;
+  position: relative;
+  display: flex;
+  /* border: 2px #15a4cc solid; */
+  box-shadow: inset 0px 0px 10px 6px rgba(65, 100, 125, 0.8);
   background-color: rgba(0, 0, 0, 0.908);
   width: 240px;
   height: 390px;
   margin: auto;
   border-radius: 20px;
   transition: transform 200ms;
+  overflow: visible;
 }
 .home-card-container:hover {
   transform: scale(1.07);
+}
+.card-content-container {
+  /* border: #e3da27 2px solid; */
+  overflow: hidden;
+  margin-bottom: 25px;
+  position: relative;
 }
 
 .home-card-title {
   text-transform: uppercase;
   text-align: center;
   color: white;
-  margin: 5px;
+  margin: 2px;
   padding-top: 1px;
   font-family: "Bangers", Courier, monospace;
   letter-spacing: 2px;
@@ -225,16 +235,19 @@ text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
 }
 .home-card-img {
   width: 100%;
-  height: 80%;
-  padding-top: 2px;
-  padding-bottom: 30px;
+  height: 100%;
+  position: relative; /* Ensure the image is within the bounds of its container */
 }
 .bookmark {
-  /* border: red 1px solid; */
-  width: 50px;
-  margin-top: -40px;
-  margin-left: 175px;
-  /* z-index: 1000; */
+  width: 42px;
+  height: 46px;
+  right: 10px;
+  top: -4px;
+  position: absolute;
+  z-index: 2;
+}
+.bookmark:hover{
+  cursor: pointer;
 }
 
 /* +++++++++++++++++++ Navigation Bar ++++++++++++++++++++++++ */
@@ -516,9 +529,7 @@ text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
   /* border: rgb(25, 147, 13) solid 3px; */
 
 }
-.info-container div {
-  /* border: rgb(91, 171, 252) solid 1px; */
-}
+
 .avatar-profile {
   width: 200px;
   height: 200px;

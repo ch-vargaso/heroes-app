@@ -14,7 +14,6 @@ function HeroCard({ hero }) {
       return h.id === hero.id;
     });
     setIsFavorite(check);
-
     if (check) {
       const findId = favourites.find((h) => {
         return h.id === hero.id;
@@ -26,7 +25,6 @@ function HeroCard({ hero }) {
 
   return (
     <div key={hero.id} className="home-card-container">
-      <p className="home-card-title">{hero.name}</p>
       {user ? (
         !isfavorite ? (
           <img
@@ -44,9 +42,12 @@ function HeroCard({ hero }) {
           />
         )
       ) : null}
-      <Link to={`/character/${hero.id}/${hero.name}`}>
-        <img className="home-card-img" src={hero.image.url} alt="hero-home" />
-      </Link>
+      <div className="card-content-container">
+        <p className="home-card-title">{hero.name}</p>
+        <Link to={`/character/${hero.id}/${hero.name}`}>
+          <img className="home-card-img" src={hero.image.url} alt="hero-home" />
+        </Link>
+      </div>
     </div>
   );
 }
