@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import { AuthContext } from '../contexts/AuthContext'
+import React from 'react'
+// import { AuthContext } from '../contexts/AuthContext'
 
 
 function Dev() {
@@ -7,7 +7,7 @@ function Dev() {
   // const user = values.user;
   // const test = values.test;
 // para resumir todo lo de arriba se hace lo siguiente: 
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
 
   return (
       <div>

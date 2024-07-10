@@ -1,18 +1,17 @@
 import React, { useContext } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext'
 
 function ProtectedRoute(props) {
   const { user, userChecked } = useContext(AuthContext);
-  const navigate = useNavigate()
-  return (
-    <>
-      {/* aquí es con mensaje */}
-      {/* {user ? props.children : <p>This page is restricted</p>} */}
-      {/* Aquí es regresando al home... */}
-      {userChecked ? user ? props.children : < Navigate to={'/'}/>: <p>Loading...</p>}
-    </>
-  )
+  if (!userChecked) {
+    return <p>Loading...</p>
+    // TODO: I need a spinner....
+  }
+  if (user) {
+    return <>{props.children}</>;
+  }
+  return <Navigate to="/" replace state={{ from: window.location.pathname }} />;
 }
 
 export default ProtectedRoute

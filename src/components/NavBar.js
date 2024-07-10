@@ -1,32 +1,37 @@
 import React, { useContext } from 'react'
-import {NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 
-
-function NavBar({demoUser, setDemoUser}) {
-    const location = useLocation();
+// function NavBar({demoUser, setDemoUser}) {
+function NavBar() {
     const { user, logOut } = useContext(AuthContext);
     return (
         <div>
-            <div className='navBar-container' >
-                <nav className='navBar'>
-                    <NavLink to='/' className={({isActive})=> isActive ? "navbar-link" : null}>Home</NavLink>
-                    {/* <NavLink to='Character' className={({ isActive }) => isActive ? "navbar-link" : null}>Character</NavLink> */}
-                    {user && <NavLink to='favourites' className={({ isActive }) => isActive ? "navbar-link" : null}>Favourites</NavLink>}
-                    {user && <NavLink to='chat' className={({ isActive }) => isActive ? "navbar-link" : null}>Chat</NavLink>}
-                
-                    {/* <NavLink to='login' className={({ isActive }) => isActive ? "navbar-link" : null}>Login</NavLink> */}
-                    <NavLink to='about' className={({ isActive }) => isActive ? "navbar-link" : null}>About</NavLink>
-                    {/* end se utiliza después del Navlink para "detener" cuando se muestra un sublink... Esta puede ser una opción */}
-                    {/* con este condicional se muestra o no el path de los sub-links */}
-                    {location.pathname.includes("about") ?
+            <div className='navbar-container' >
+                <nav className='navbar'>
+                    {!user ? (
                         <>
-                            <NavLink to='about/dev' className={({ isActive }) => isActive ? "navbar-link" : null}>Dev</NavLink>
-                            <NavLink to='about/content' className={({ isActive }) => isActive ? "navbar-link" : null}>Content</NavLink>
+                            <div className='links'>
+                                <NavLink to='/' className={({isActive})=> isActive ? "navbar-active" : "navbar-text"}>Home</NavLink>
+                            </div>
+                            <div className='links'>
+                                <NavLink to='login' className={({ isActive }) => isActive ? "navbar-active" : "navbar-text"}>Log in</NavLink>
+                                <span> / </span>
+                                <NavLink to='signup' className={({ isActive }) => isActive ? "navbar-active" : "navbar-text"}>Sign up</NavLink>
+                            </div>
                         </>
-                    : null}
-                    {!user ? <NavLink to='login' className={({ isActive }) => isActive ? "navbar-link" : null}>Log in</NavLink> :
-                        <NavLink to='login' className={({ isActive }) => isActive ? "navbar-link" : null} onClick={logOut} >Log out </NavLink>}
+                    ) : (
+                        <>
+                            <div className='links'>
+                                <NavLink to='feed' className={({ isActive }) => isActive ? "navbar-active" : "navbar-text"}>Home</NavLink>
+                                <NavLink to='chat' className={({ isActive }) => isActive ? "navbar-active" : "navbar-text"}>Chat</NavLink>
+                            </div>
+                            <div className='links'>
+                                <NavLink to='profile' className={({ isActive }) => isActive ? "navbar-active" : "navbar-text"}>Profile</NavLink>
+                                <NavLink to='login' className={({ isActive }) => isActive ? "navbar-active" : "navbar-text"} onClick={logOut} >Log out </NavLink>
+                            </div>
+                        </>
+                    )}
                 </nav>
             </div>  
         </div>
