@@ -385,16 +385,75 @@ text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
   background-size: 100%;
   padding: 30px;
 }
+.card-header {
+  background-color: #000;
+  /* background-color: whitesmoke; */
+  border-radius: 10px 10px 0px 0px ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+
+}
+:root{
+  --star-color: whitesmoke; /* Default star color */
+  --default-background: rgb(255, 165, 0);
+  --default-border: rgb(27, 15, 0) 2px solid;
+  --default-color: rgb(0, 0, 0);
+  --hover-background: rgb(27, 15, 0);
+  --hover-border: rgb(255, 165, 0) 2px solid;
+  --hover-color: rgb(255, 255, 255);
+}
+.card-header-bt {
+  border: var(--default-border);
+  color: var(--dafault-color);
+  background-color: var(--default-background);
+  box-shadow: 0px 0px 16px 0.5px rgb(255, 165, 0);
+  border-radius: 10px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bangers", Courier;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+.icon {
+  fill: yellowgreen;
+}
+.card-header-bt:hover {
+  border: var(--hover-border);
+  color: rgba(245, 245, 245, 0.831);
+  background-color:rgba(27, 15, 1, 0.729);
+  cursor: pointer;
+}
+.card-header-bt-fav{
+  background-color: var(--hover-background);
+  color: var(--hover-color);
+  border: var(--hover-border);
+}
+.card-header-bt-fav:hover{
+  border: var(--default-border);
+  color: var(--dafault-color);
+  background-color: var(--default-background);
+}
+
 .hero-title {
   text-align: center;
-  background-color: #000;
   color: #e3da27;
   font-family: "Bangers", Courier, monospace;
   font-size: 3rem;
   letter-spacing: 2px;
   margin: 0px 0px;
   padding: 10px 0;
-  border-radius: 10px 10px 0px 0px ;
 }
 
 .hero-info {
@@ -596,7 +655,7 @@ text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000,
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
-
+  z-index: 1000;
 }
 
 .change-avatar-container{
